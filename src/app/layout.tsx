@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "我的个人网站",
-    template: "%s · 我的个人网站",
+    default: "SenMaoHub",
+    template: "%s · SenMaoHub",
   },
   description: "博客与作品集（Next.js 静态站点）",
 };

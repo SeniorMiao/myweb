@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ProfileCard } from "@/components/ProfileCard";
 import { getAllItems } from "@/lib/content";
 
 export default function Home() {
@@ -8,13 +9,14 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16">
       <section>
-        <p className="text-sm font-medium text-zinc-500">欢迎</p>
-        <h1 className="mt-2 text-4xl font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-          你好，我是 <span className="text-zinc-700 dark:text-zinc-200">你的名字</span>
-        </h1>
-        <p className="mt-5 max-w-2xl text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-          这是一套可部署到 GitHub Pages 的个人站骨架：支持博客与项目页，后续也可以平滑扩展到更多动态能力。
-        </p>
+        <ProfileCard
+          name="喵学长"
+          title="SenMaoHub：博客与作品集。持续分享学习笔记、项目实践与踩坑总结。"
+          links={[
+            { label: "GitHub", href: "https://github.com/SeniorMiao" },
+            { label: "邮箱", href: "mailto:2829835655@qq.com" },
+          ]}
+        />
         <div className="mt-8 flex flex-wrap gap-3">
           <Link
             href="/blog/"
