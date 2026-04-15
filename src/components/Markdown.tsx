@@ -1,5 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import rehypeSanitize, { defaultSchema } from "rehype-sanitize";
 
 type Props = {
   source: string;
@@ -22,11 +24,30 @@ function normalizeSrc(src: string | undefined) {
   return normalizeHref(src);
 }
 
+const sanitizeSchema = {
+  ...defaultSchema,
+  tagNames: Array.from(
+    new Set([...(defaultSchema.tagNames ?? []), "font", "span", "br"]),
+  ),
+  attributes: {
+    ...(defaultSchema.attributes ?? {}),
+    font: [
+      ...(defaultSchema.attributes?.font ?? []),
+      "style",
+      "color",
+      "size",
+      "face",
+    ],
+    span: [...(defaultSchema.attributes?.span ?? []), "style"],
+  },
+};
+
 export function Markdown({ source }: Props) {
   return (
     <div className="markdown-body">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
+        rehypePlugins={[[rehypeRaw], [rehypeSanitize, sanitizeSchema]]}
         components={{
           a: ({ href, children, ...rest }) => {
             const resolved = normalizeHref(href);
