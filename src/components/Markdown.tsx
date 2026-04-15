@@ -47,6 +47,7 @@ export function Markdown({ source }: Props) {
     <div className="markdown-body">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
+        remarkRehypeOptions={{ allowDangerousHtml: true }}
         rehypePlugins={[[rehypeRaw], [rehypeSanitize, sanitizeSchema]]}
         components={{
           a: ({ href, children, ...rest }) => {
