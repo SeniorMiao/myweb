@@ -18,12 +18,18 @@ export function ProfileCard({
   avatarSrc = "/avatar.svg",
   links,
 }: Props) {
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const resolvedAvatarSrc =
+    avatarSrc.startsWith("/") && basePath && !avatarSrc.startsWith(basePath)
+      ? `${basePath}${avatarSrc}`
+      : avatarSrc;
+
   return (
     <div className="flex flex-col gap-6 sm:flex-row sm:items-center">
       <div className="shrink-0">
         <div className="h-20 w-20 overflow-hidden rounded-2xl border border-zinc-200 bg-white shadow-sm dark:border-zinc-800 dark:bg-zinc-950">
           <Image
-            src={avatarSrc}
+            src={resolvedAvatarSrc}
             alt={`${name} 的头像`}
             width={160}
             height={160}
