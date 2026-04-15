@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), system-ui, sans-serif;
+}
+
+.markdown-body {
+  line-height: 1.75;
+}
+
+.markdown-body :where(h1, h2, h3) {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.markdown-body h1 {
+  font-size: 1.5rem;
+}
+
+.markdown-body h2 {
+  font-size: 1.25rem;
+}
+
+.markdown-body h3 {
+  font-size: 1.125rem;
+}
+
+.markdown-body :where(p) {
+  margin: 0.75em 0;
+}
+
+.markdown-body :where(ul, ol) {
+  margin: 0.75em 0;
+  padding-left: 1.25rem;
+}
+
+.markdown-body ul {
+  list-style: disc;
+}
+
+.markdown-body ol {
+  list-style: decimal;
+}
+
+.markdown-body :where(li) {
+  margin: 0.25em 0;
+}
+
+.markdown-body :where(code) {
+  font-family: var(--font-geist-mono), ui-monospace, monospace;
+  font-size: 0.9em;
+}
+
+.markdown-body :where(pre) {
+  margin: 1em 0;
+  overflow: auto;
+  border-radius: 0.75rem;
+  border: 1px solid rgb(228 228 231);
+  background: rgb(250 250 250);
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .markdown-body :where(pre) {
+    border-color: rgb(39 39 42);
+    background: rgb(24 24 27);
+  }
+}
+
+.markdown-body :where(blockquote) {
+  margin: 1em 0;
+  border-left: 3px solid rgb(228 228 231);
+  padding-left: 1em;
+  color: rgb(82 82 91);
+}
+
+.markdown-body :where(table) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.markdown-body :where(th, td) {
+  border: 1px solid rgb(228 228 231);
+  padding: 0.5rem 0.75rem;
+}
+
+.markdown-body :where(a) {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
