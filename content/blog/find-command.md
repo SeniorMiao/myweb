@@ -1,7 +1,7 @@
 ---
 title: find 命令
 date: 2026-04-15
-description: find 的常用筛选条件与批量处理用法笔记。
+description: find 常用筛选条件与批量处理操作笔记。
 ---
 
 # find命令

@@ -1,7 +1,7 @@
 ---
 title: 重定向
 date: 2026-04-15
-description: Linux 输出重定向与错误重定向的常用写法。
+description: 标准输出/标准错误的覆盖与追加重定向速查。
 ---
 
 ### <font style="color:rgb(15, 17, 21);"> </font>`<font style="color:rgb(15, 17, 21);background-color:rgb(235, 238, 242);">></font>`<font style="color:rgb(15, 17, 21);"> 覆盖重定向</font>

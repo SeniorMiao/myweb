@@ -1,7 +1,7 @@
 ---
 title: 系统目标（systemd target）
 date: 2026-04-15
-description: systemd 目标查看与设置的速查笔记。
+description: systemd target 的查看、列举与默认目标设置速查。
 ---
 
 第二周 
