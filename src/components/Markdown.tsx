@@ -14,6 +14,14 @@ function normalizeHref(href: string | undefined) {
   return prefix ? `${prefix}${href}` : href;
 }
 
+function normalizeSrc(src: string | undefined) {
+  if (!src) return src;
+  if (src.startsWith("data:")) return src;
+  if (src.startsWith("http://") || src.startsWith("https://")) return src;
+  if (src.startsWith("//")) return src;
+  return normalizeHref(src);
+}
+
 export function Markdown({ source }: Props) {
   return (
     <div className="markdown-body">
@@ -33,6 +41,21 @@ export function Markdown({ source }: Props) {
               >
                 {children}
               </a>
+            );
+          },
+          img: ({ src, alt, ...rest }) => {
+            const raw = typeof src === "string" ? src : undefined;
+            const resolved = normalizeSrc(raw);
+            return (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                {...rest}
+                src={resolved}
+                alt={alt ?? ""}
+                loading="lazy"
+                referrerPolicy="no-referrer"
+                className="my-4 max-w-full rounded-xl border border-zinc-200 dark:border-zinc-800"
+              />
             );
           },
         }}
