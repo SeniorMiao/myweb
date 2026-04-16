@@ -12,6 +12,19 @@ export type ContentItem = {
   body: string;
 };
 
+function normalizeMarkdownBody(input: string) {
+  return (
+    input
+      // strip common rich-text tags but keep content
+      .replace(/<\s*\/?\s*font\b[^>]*>/gi, "")
+      .replace(/<\s*\/?\s*span\b[^>]*>/gi, "")
+      // line breaks
+      .replace(/<\s*br\s*\/?>/gi, "\n")
+      // common html entities from exports
+      .replace(/&nbsp;/g, " ")
+  );
+}
+
 function collectionDir(collection: Collection) {
   return path.join(process.cwd(), "content", collection);
 }
@@ -37,7 +50,7 @@ export function getItem(
   const description =
     typeof data.description === "string" ? data.description : "";
   const date = typeof data.date === "string" ? data.date : undefined;
-  return { slug, title, description, date, body: content };
+  return { slug, title, description, date, body: normalizeMarkdownBody(content) };
 }
 
 export function getAllItems(collection: Collection): ContentItem[] {
