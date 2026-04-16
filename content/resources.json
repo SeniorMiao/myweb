@@ -1,0 +1,15 @@
+[
+  {
+    "name": "JDK 17（示例）",
+    "version": "17.0.x",
+    "description": "建议把大文件放到 GitHub Releases，这里放下载链接。",
+    "url": "https://github.com/SeniorMiao/myweb/releases"
+  },
+  {
+    "name": "本站资源示例文件",
+    "version": "1.0.0",
+    "description": "小文件可以直接放在 public/resources/ 下，通过站内链接下载。",
+    "path": "/resources/example.txt"
+  }
+]
+

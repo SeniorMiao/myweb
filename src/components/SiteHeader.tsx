@@ -4,6 +4,7 @@ const nav = [
   { href: "/", label: "首页" },
   { href: "/blog/", label: "博客" },
   { href: "/projects/", label: "项目" },
+  { href: "/resources/", label: "资源" },
   { href: "/about/", label: "关于" },
 ] as const;
 

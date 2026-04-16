@@ -1,0 +1,5 @@
+这是一个示例资源文件。
+
+你可以把小文件（例如脚本、配置模板等）放到 `public/resources/` 下，
+然后在 `content/resources.json` 里用 `"path": "/resources/xxx.ext"` 让页面自动列出来。
+
