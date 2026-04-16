@@ -39,6 +39,13 @@ const sanitizeSchema = {
       "face",
     ],
     span: [...(defaultSchema.attributes?.span ?? []), "style"],
+    p: [...(defaultSchema.attributes?.p ?? []), "style", "className", "class"],
+    div: [
+      ...(defaultSchema.attributes?.div ?? []),
+      "style",
+      "className",
+      "class",
+    ],
   },
 };
 
